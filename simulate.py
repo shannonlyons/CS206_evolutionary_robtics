@@ -10,10 +10,11 @@ import pybullet as p
 import pyrosim.pyrosim as pyrosim
 import time
 
+from simulation import SIMULATION
 
 class SIMULATE:
     def __init__(self):
-        pass
+        self.simulation = SIMULATION()
 
     def Run(self):
         self.back_sin_array = []
@@ -41,8 +42,7 @@ class SIMULATE:
             # pyrosim.Set_Motor_For_Joint(r.robotId, "Torso_FrontLeg", p.POSITION_CONTROL, self.front_sin_array[i], 20)
             # time.sleep(1/120)
 
-from simulation import SIMULATION
-self.Run()
+  #  simulate.Run()
 #
 # # save here
 # np.save('data/backLegSensorValues.npy', backLegSensorValues)

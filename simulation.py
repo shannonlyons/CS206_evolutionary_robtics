@@ -16,8 +16,8 @@ class SIMULATION:
     def __init__(self):
         self.world = WORLD()
         self.robot = ROBOT()
-        self.sensor = SENSOR()
-        self.motor = MOTOR()
+        # self.sensor = SENSOR()
+        # self.motor = MOTOR()
 
         # Connect to pybullet, set additional search, set gravity, prep to simulate
         self.physicsClient = p.connect(p.GUI)
