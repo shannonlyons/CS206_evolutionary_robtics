@@ -5,9 +5,6 @@ import pybullet_data
 class CONSTANTS:
     def __init__(self):
 
-        self.backLegSensorValues = np.zeros(1000)
-        self.frontLegSensorValues = np.zeros(1000)
-
         self.targetAngles = np.linspace(-np.pi, 2*np.pi, 1000)
 
         self.back_amplitude = -np.pi / 4
