@@ -21,8 +21,8 @@ class SIMULATION:
         for i in range(1000):
             p.stepSimulation()
             self.robot.Sense(i)
-            self.robot.Think(i)
-            self.robot.Act(i)
+            self.robot.Think()
+            self.robot.Act()
             time.sleep(1/240)
 
     def __del__(self):
