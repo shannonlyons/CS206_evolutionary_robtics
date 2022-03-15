@@ -73,7 +73,7 @@ class NEURON:
     def Update_Hidden_Or_Motor_Neuron(self, neurons, synapses):
 
         self.Set_Value(0)
-        print(self.Get_Value())
+      #  print(self.Get_Value())
       #  print(neurons)
         for key in synapses:
             if key[1] == self.Get_Name():
@@ -83,7 +83,7 @@ class NEURON:
 
             self.Threshold()
 
-        print(self.Get_Value())
+     #   print(self.Get_Value())
      #   print(self.Get_Name())
 
 

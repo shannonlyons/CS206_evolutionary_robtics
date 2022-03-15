@@ -3,13 +3,17 @@ import pybullet_data
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
 import time
+import sys
 
 from world import WORLD
 from robot import ROBOT
 
 class SIMULATION:
-    def __init__(self):
-        self.physicsClient = p.connect(p.GUI)
+    def __init__(self, directOrGui):
+        if (directOrGui == 'DIRECT'):
+            self.physicsClient = p.connect(p.DIRECT)
+        elif (directOrGui == 'GUI'):
+            self.physicsClient = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.8)
 
@@ -24,6 +28,9 @@ class SIMULATION:
             self.robot.Think()
             self.robot.Act()
             time.sleep(1/240)
+
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()
 
     def __del__(self):
         p.disconnect()

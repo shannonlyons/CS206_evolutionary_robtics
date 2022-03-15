@@ -19,3 +19,5 @@ class CONSTANTS:
 
         self.back_phaseOffset = 0
         self.front_phaseOffset = 0
+
+        self.numberOfGenerations = 10
