@@ -5,29 +5,32 @@ import os
 
 class SOLUTION:
     def __init__(self):
-        self.weights = np.random.rand(2, 3)
+        self.weights = np.random.rand(3, 2)
         self.weights = self.weights * 2 - 1
         print(self.weights)
-        exit()
+      #  exit()
 
     def Evaluate(self, directOrGui):
         self.Create_World()
-        self.Generate_Body()
-        self.Generate_Brain()
+        self.Create_Body()
+        self.Create_Brain()
 
-        os.system("python3 simulate.py directOrGui")
-      #  elif (directOrGui == 'GUI'):
-       #     os.system("python3 simulate.py GUI")
+        os.system("python3 simulate.py " + directOrGui)
 
         f = open("fitness.txt", "r")
         self.fitness = float(f.read())
         f.close()
 
     def Create_World(self):
-        pass
+        length = 1
+        width = 1
+        height = 1
+
+        pyrosim.Start_SDF("world.sdf")
+        pyrosim.Send_Cube(name="Box", pos=[3, 3, 0.5], size=[length, width, height])
+        pyrosim.End()
 
     def Create_Body(self):
-
         length = 1
         width = 1
         height = 1
@@ -60,6 +63,6 @@ class SOLUTION:
         pyrosim.End()
 
     def Mutate(self):
-        randomRow = random.randInt(0, 2)
-        randomColumn = random.randInt(0, 1)
+        randomRow = random.randint(0, 2)
+        randomColumn = random.randint(0, 1)
         self.weights[randomRow, randomColumn] = random.random() * 2 - 1

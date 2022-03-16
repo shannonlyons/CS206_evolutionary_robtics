@@ -1,4 +1,3 @@
-import numpy as np
 import pybullet_data
 import pybullet as p
 import pyrosim.pyrosim as pyrosim
@@ -10,6 +9,7 @@ from robot import ROBOT
 
 class SIMULATION:
     def __init__(self, directOrGui):
+       # self.directOrGui = sys.argv[1]
         if (directOrGui == 'DIRECT'):
             self.physicsClient = p.connect(p.DIRECT)
         elif (directOrGui == 'GUI'):

@@ -10,9 +10,9 @@ import hillclimber as hc
 
 os.system("python3 hillclimber.py")
 
-hillclimber = HILL_CLIMBER()
-hillclimber.Evolve()
-hillclimber.Show_Best
+hc = HILL_CLIMBER()
+hc.Evolve()
+hc.Show_Best()
 
 #os.system("python3 generate.py")
 #os.system("python3 simulate.py")
