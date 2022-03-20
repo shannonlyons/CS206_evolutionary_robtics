@@ -9,7 +9,8 @@ from robot import ROBOT
 
 class SIMULATION:
     def __init__(self, directOrGui):
-       # self.directOrGui = sys.argv[1]
+        self.directOrGui = directOrGui
+
         if (directOrGui == 'DIRECT'):
             self.physicsClient = p.connect(p.DIRECT)
         elif (directOrGui == 'GUI'):
@@ -27,7 +28,8 @@ class SIMULATION:
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act()
-            time.sleep(1/240)
+            if self.directOrGui == 'GUI':
+                time.sleep(1/240)
 
     def Get_Fitness(self):
         self.robot.Get_Fitness()
