@@ -1,5 +1,5 @@
 import os
-from hillclimber import HILL_CLIMBER
+from parallelHillClimber import PARALLEL_HILL_CLIMBER
 
 import hillclimber as hc
 
@@ -8,11 +8,11 @@ import hillclimber as hc
 #         print('********* Got here in search.py *********')
 #         self.hc.Evolve()
 
-os.system("python3 hillclimber.py")
+os.system("python3 parallelHillClimber.py")
 
-hc = HILL_CLIMBER()
-hc.Evolve()
-hc.Show_Best()
+phc = PARALLEL_HILL_CLIMBER()
+phc.Evolve()
+phc.Show_Best()
 
 #os.system("python3 generate.py")
 #os.system("python3 simulate.py")

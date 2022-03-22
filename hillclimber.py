@@ -10,7 +10,6 @@ class HILL_CLIMBER:
         self.parent.Evaluate("GUI")
 
         for currentGeneration in range(10):
-      #  for currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
 
     def Evolve_For_One_Generation(self):
@@ -27,8 +26,6 @@ class HILL_CLIMBER:
         self.child.Mutate()
 
     def Select(self):
-      #  print(self.parent.fitness)
-      #  print(self.child.fitness)
 
         if (self.parent.fitness > self.child.fitness):
             self.parent = self.child

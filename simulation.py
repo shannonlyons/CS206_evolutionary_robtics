@@ -8,8 +8,9 @@ from world import WORLD
 from robot import ROBOT
 
 class SIMULATION:
-    def __init__(self, directOrGui):
+    def __init__(self, directOrGui, solutionID):
         self.directOrGui = directOrGui
+        self.solutionID = solutionID
 
         if (directOrGui == 'DIRECT'):
             self.physicsClient = p.connect(p.DIRECT)
@@ -19,7 +20,7 @@ class SIMULATION:
         p.setGravity(0, 0, -9.8)
 
         self.world = WORLD()
-        self.robot = ROBOT()
+        self.robot = ROBOT(solutionID)
 
     def Run(self):
 
