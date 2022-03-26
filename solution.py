@@ -11,14 +11,11 @@ class SOLUTION:
         self.weights = self.weights * 2 - 1
       #  print(self.weights)
 
-    def Evaluate(self, directOrGui):
-        pass
-
     def Start_Simulation(self, directOrGui):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
-        os.system("python3 simulate.py " + directOrGui + " " + str(self.myID) + " &")
+        os.system("python3 simulate.py " + directOrGui + " " + str(self.myID) + " 2&>1 &")
 
     def Wait_For_Simulation_To_End(self):
         fitnessFile = "fitness" + str(self.myID) + ".txt"
