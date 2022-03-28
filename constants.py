@@ -1,6 +1,4 @@
 import numpy as np
-import pybullet as p
-import pybullet_data
 
 targetAngles = np.linspace(-np.pi, 2*np.pi, 1000)
 amplitude = np.pi / 4
@@ -16,7 +14,8 @@ front_frequency = -0.06
 back_phaseOffset = 0
 front_phaseOffset = 0
 
-numberOfGenerations = 8
+numberOfGenerations = 1
+populationSize = 1
 
-populationSize = 8
-
+numSensorNeurons = 3
+numMotorNeurons = 2
