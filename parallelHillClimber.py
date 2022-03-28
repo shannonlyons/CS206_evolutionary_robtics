@@ -6,15 +6,14 @@ import os
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
 
-     #   os.remove('brain*.nndf')
-       # os.remove('fitness0.txt')
+        os.system('rm brain*.nndf')
+        os.system('rm fitness*.txt')
 
         self.parents = {}
         self.nextAvailableID = 0
         for key in range(0, c.populationSize):
             self.parents[key] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
-           # print(self.parents)
 
     def Evolve(self):
 

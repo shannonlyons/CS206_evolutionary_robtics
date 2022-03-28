@@ -14,8 +14,10 @@ front_frequency = -0.06
 back_phaseOffset = 0
 front_phaseOffset = 0
 
-numberOfGenerations = 1
-populationSize = 1
+numberOfGenerations = 4
+populationSize = 4
 
-numSensorNeurons = 3
-numMotorNeurons = 2
+numSensorNeurons = 4
+numMotorNeurons = 8
+
+motorJointRange = 0.2
