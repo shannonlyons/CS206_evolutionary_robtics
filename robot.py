@@ -57,10 +57,15 @@ class ROBOT:
         self.positionOfLinkZero = self.stateOfLinkZero[0]
         self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
 
+        # basePositionAndOrientation = p.getBasePositionAndOrientation(self.robot)
+        # basePosition = basePositionAndOrientation[0]
+        # xCoordinateOfLinkZero = basePosition[0]
+
         fitnessFile = "fitness" + str(self.solutionID) + ".txt"
         tempFile = "tmp" + str(self.solutionID) + ".txt"
         f = open(tempFile, "w")
         os.system('mv ' + tempFile + ' ' + fitnessFile)
+        # f.write(str(xPosition))
         f.write(str(self.xCoordinateOfLinkZero))
         f.close()
 
