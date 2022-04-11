@@ -3,6 +3,7 @@ import pybullet as p
 import pyrosim.pyrosim as pyrosim
 import time
 import sys
+import constants as c
 
 from world import WORLD
 from robot import ROBOT
@@ -19,12 +20,12 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.8)
 
-        self.world = WORLD()
+        self.world = WORLD(solutionID)
         self.robot = ROBOT(solutionID)
 
     def Run(self):
 
-        for i in range(1000):
+        for i in range(c.numIterations):
             p.stepSimulation()
             self.robot.Sense(i)
             self.robot.Think()

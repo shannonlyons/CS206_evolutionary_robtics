@@ -15,6 +15,7 @@ class SOLUTION:
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
+       # os.system("python3 simulate.py " + directOrGui + " " + str(self.myID))
         os.system("python3 simulate.py " + directOrGui + " " + str(self.myID) + " 2&>1 &")
 
     def Wait_For_Simulation_To_End(self):
@@ -28,12 +29,19 @@ class SOLUTION:
         os.remove(fitnessFile)
 
     def Create_World(self):
-        pyrosim.Start_SDF("world.sdf")
-        pyrosim.Send_Cube(name="Box", pos=[3, 3, 0.5], size=[1, 1, 1])
+        worldFileName = "world" + str(self.myID) + ".sdf"
+        pyrosim.Start_SDF(worldFileName)
+        #pyrosim.Start_SDF("world.sdf")
+        # Closest box
+        pyrosim.Send_Cube(name="Box", pos=[-3, 0, 1], size=[0.7, 0.7, 0.7])
+
+        # 2nd closest box
+        pyrosim.Send_Cube(name="Box", pos=[-5, 1, 1], size=[0.7, 0.7, 0.7])
         pyrosim.End()
 
     def Create_Body(self):
-        pyrosim.Start_URDF("body.urdf")
+        bodyFileName = "body" + str(self.myID) + ".urdf"
+        pyrosim.Start_URDF(bodyFileName)
 
         # Torso
         pyrosim.Send_Cube(name="Torso", pos=[0, 0, 1], size=[1, 1, 1])
