@@ -7,6 +7,7 @@ import sys
 from world import WORLD
 from robot import ROBOT
 
+# CHANGE HERE
 class SIMULATION:
     def __init__(self, directOrGui, solutionID):
         self.directOrGui = directOrGui
