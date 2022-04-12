@@ -5,6 +5,7 @@ from motor import MOTOR
 import time
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import os
+import math
 
 import constants as c
 import sensor as s
@@ -18,10 +19,8 @@ class ROBOT:
 
         bodyFileName = "body" + str(self.solutionID) + ".urdf"
         self.robotId = p.loadURDF(bodyFileName)
-      #  self.robotId = p.loadURDF("body.urdf")
+
         fileName = "brain" + str(self.solutionID) + ".nndf"
-        #print(fileName)
-       # print("FILE NAME ABOVE")
         self.nn = NEURAL_NETWORK(fileName)
 
 
@@ -35,7 +34,6 @@ class ROBOT:
 
     def Prepare_To_Sense(self):
         for linkName in pyrosim.linkNamesToIndices:
-          #  print(linkName)
             self.sensors[linkName] = SENSOR(linkName)
     #
     def Sense(self, i):
