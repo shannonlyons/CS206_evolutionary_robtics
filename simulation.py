@@ -26,7 +26,7 @@ class SIMULATION:
     def Run(self):
 
         for i in range(c.numIterations):
-            p.stepSimulation()
+            timestep = p.stepSimulation()
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act()

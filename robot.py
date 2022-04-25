@@ -58,12 +58,14 @@ class ROBOT:
         basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
         basePosition = basePositionAndOrientation[0]
         xPosition = basePosition[0]
+        height = basePosition[2]
 
         fitnessFile = "fitness" + str(self.solutionID) + ".txt"
         tempFile = "tmp" + str(self.solutionID) + ".txt"
         f = open(tempFile, "w")
         os.system('mv ' + tempFile + ' ' + fitnessFile)
         f.write(str(xPosition))
+      #  f.write(str(height))
         f.close()
 
         exit()
