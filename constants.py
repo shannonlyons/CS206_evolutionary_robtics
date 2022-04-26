@@ -24,4 +24,4 @@ numMotorNeurons = 8
 
 motorJointRange = 0.2
 
-numIterations = 5000
+numIterations = 50000
