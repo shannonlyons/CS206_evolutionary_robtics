@@ -2,6 +2,9 @@ from solution import SOLUTION
 import constants as c
 import copy
 import os
+import numpy as np
+
+# THIS IS AAAAAAAAAAAA
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
@@ -17,11 +20,15 @@ class PARALLEL_HILL_CLIMBER:
             self.parents[key] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
 
+        self.currentGeneration = 0
+
+        self.resultsA = np.zeros((c.populationSize, c.numberOfGenerations))
+
     def Evolve(self):
 
         self.Evaluate(self.parents)
 
-        for currentGeneration in range(c.populationSize):
+        for self.currentGeneration in range(c.numberOfGenerations):
             self.Evolve_For_One_Generation()
 
     def Evolve_For_One_Generation(self):
@@ -70,3 +77,6 @@ class PARALLEL_HILL_CLIMBER:
 
         for key in range(0, c.populationSize):
             solutions[key].Wait_For_Simulation_To_End()
+            self.resultsA[self.currentGeneration, key] = solutions[key].fitness
+
+        print(self.resultsA)

@@ -8,7 +8,6 @@ import os
 import math
 
 import constants as c
-import sensor as s
 
 class ROBOT:
     def __init__(self, solutionID):
