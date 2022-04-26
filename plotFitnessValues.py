@@ -1,23 +1,22 @@
-import numpy as np
-import matplotlib.pyplot as plt
-
-backLegSensorValues = np.load('data/backLegSensorValues.npy')
-frontLegSensorValues = np.load('data/frontLegSensorValues.npy')
-
-print(backLegSensorValues)
-print(frontLegSensorValues)
-
-plt.plot(backLegSensorValues, label='Back Leg', linewidth=5)
-plt.plot(frontLegSensorValues, label='Front Leg')
-
-# Plot target Angles
-targetAngles = np.load('data/targetAngles.npy')
-print (targetAngles)
-plt.plot(targetAngles, np.sin(targetAngles))
-
-plt.legend()
-plt.show()
-
+# import numpy as np
+# import matplotlib.pyplot as plt
+#
+# backLegSensorValues = np.load('data/backLegSensorValues.npy')
+# frontLegSensorValues = np.load('data/frontLegSensorValues.npy')
+#
+# print(backLegSensorValues)
+# print(frontLegSensorValues)
+#
+# plt.plot(backLegSensorValues, label='Back Leg', linewidth=5)
+# plt.plot(frontLegSensorValues, label='Front Leg')
+#
+# # Plot target Angles
+# targetAngles = np.load('data/targetAngles.npy')
+# print (targetAngles)
+# plt.plot(targetAngles, np.sin(targetAngles))
+#
+# plt.legend()
+# plt.show()
 
 
 
@@ -27,26 +26,29 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 rows = [1, 2, 3, 4, 5]
-fitnessFunctionA = np.load('abtestnumpy.npy')
-fitnessFunctionB = np.load('abtestnumpyb.npy')
+fitnessA = np.load('resultsA.npy')
+fitnessB = np.load('resultsB.npy')
 
-meanOfA = np.mean(fitnessFunctionA, axis=1)
-meanOfB = np.mean(fitnessFunctionB, axis=1)
-stdOfA = np.std(fitnessFunctionA, axis=1)
-stdOfB = np.std(fitnessFunctionB, axis=1)
+meanOfA = np.mean(fitnessA, axis=1)
+meanOfB = np.mean(fitnessB, axis=1)
+stdOfA = np.std(fitnessA, axis=1)
+stdOfB = np.std(fitnessB, axis=1)
 
 meanPlusStdA = (meanOfA + (stdOfA))
 meanMinusStdA = (meanOfA - (stdOfA))
 meanPlusStdB = (meanOfB + (stdOfB))
 meanMinusStdB = (meanOfB - (stdOfB))
 
-plt.plot(meanPlusStdA, label='ROBOT A (mean+std)')
-plt.plot(meanOfA, label='ROBOT A (mean)')
-plt.plot(meanMinusStdA, label='ROBOT A (mean-std)')
+# plt.plot(meanPlusStdA, label='Hexapod A: 2F2B (mean+std)')
+# plt.plot(meanOfA, label='Hexapod A: 2F2B (mean)')
+# plt.plot(meanMinusStdA, label='Hexapod A: 2F2B (mean-std)')
+#
+# plt.plot(meanPlusStdB, label='Hexapod B: 2L2R (mean+std)')
+# plt.plot(meanOfB, label='Hexapod B: 2L2R (mean)')
+# plt.plot(meanMinusStdB, label='Hexapod B: 2L2R (mean-std)')
 
-plt.plot(meanPlusStdB, label='ROBOT B (mean+std)')
-plt.plot(meanOfB, label='ROBOT B (mean)')
-plt.plot(meanMinusStdB, label='ROBOT B (mean-std)')
+plt.plot(fitnessA, label='Hexapod A: 2F2B')
+plt.plot(fitnessB, label='Hexapod B: 2L2R')
 
 # plt.plot(stdOfA, label)
 # plt.plot(meanOfB, label='ROBOT B')

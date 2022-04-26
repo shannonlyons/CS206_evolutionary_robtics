@@ -10,6 +10,7 @@ phc.Evolve()
 phc.Show_Best()
 
 np.save('resultsA', phc.resultsA)
+np.savetxt('resultsA', phc.resultsA)
 
 #os.system("python3 generate.py")
 #os.system("python3 simulate.py")
