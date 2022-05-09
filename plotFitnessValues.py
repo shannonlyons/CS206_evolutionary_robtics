@@ -39,16 +39,16 @@ meanMinusStdA = (meanOfA - (stdOfA))
 meanPlusStdB = (meanOfB + (stdOfB))
 meanMinusStdB = (meanOfB - (stdOfB))
 
-plt.plot(meanPlusStdA, label='(M + S): Hexapod A = 2F2B')
+plt.plot(meanPlusStdA, label='(M + S): Hexapod A = 2L2R')
 plt.plot(meanOfA, label='(M): Hexapod A = 2F2B')
-plt.plot(meanMinusStdA, label='(M - S): Hexapod A = 2F2B')
+plt.plot(meanMinusStdA, label='(M - S): Hexapod A = 2L2R')
 #
-plt.plot(meanPlusStdB, label='(M + S): Hexapod B = 2L2R')
+plt.plot(meanPlusStdB, label='(M + S): Hexapod B = 3L3R')
 plt.plot(meanOfB, label='(M): Hexapod B = 2L2R')
-plt.plot(meanMinusStdB, label='(M - S): Hexapod B = 2L2R')
+plt.plot(meanMinusStdB, label='(M - S): Hexapod B = 3L3R')
 
-# plt.plot(fitnessA, label='Hexapod A: 2F2B', linewidth=3)
-# plt.plot(fitnessB, label='Hexapod B: 2L2R')
+# plt.plot(fitnessA, label='Hexapod A: 2L2R', linewidth=3)
+# plt.plot(fitnessB, label='Hexapod B: 3L3R')
 
 # plt.plot(stdOfA, label)
 # plt.plot(meanOfB, label='ROBOT B')
