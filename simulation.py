@@ -3,11 +3,11 @@ import pybullet as p
 import pyrosim.pyrosim as pyrosim
 import time
 import sys
-import constants as c
 
 from world import WORLD
 from robot import ROBOT
 
+# CHANGE HERE
 class SIMULATION:
     def __init__(self, directOrGui, solutionID):
         self.directOrGui = directOrGui
@@ -20,18 +20,18 @@ class SIMULATION:
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, -9.8)
 
-        self.world = WORLD(solutionID)
+        self.world = WORLD()
         self.robot = ROBOT(solutionID)
 
     def Run(self):
 
-        for i in range(c.numIterations):
+        for i in range(1000):
             p.stepSimulation()
             self.robot.Sense(i)
             self.robot.Think()
             self.robot.Act()
             if self.directOrGui == 'GUI':
-                time.sleep(1/240)
+                time.sleep(1/800) #240
 
     def Get_Fitness(self):
         self.robot.Get_Fitness()

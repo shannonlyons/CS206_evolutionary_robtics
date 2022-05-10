@@ -4,15 +4,12 @@ import copy
 import os
 import numpy as np
 
-# THIS IS AAAAAAAAAAAA
 
 class PARALLEL_HILL_CLIMBER:
     def __init__(self):
 
         os.system('rm brain*.nndf')
         os.system('rm fitness*.txt')
-        os.system('rm body*.urdf')
-        os.system('rm world*.sdf')
 
         self.parents = {}
         self.nextAvailableID = 0
@@ -22,7 +19,9 @@ class PARALLEL_HILL_CLIMBER:
 
         self.currentGeneration = 0
 
-        self.resultsA = np.zeros((c.populationSize, c.numberOfGenerations))
+        self.resultsA = np.zeros((5, 5))  # might brake
+
+        np.around
 
     def Evolve(self):
 
@@ -41,7 +40,7 @@ class PARALLEL_HILL_CLIMBER:
 
     def Spawn(self):
         self.children = {}
-        for key in range (c.populationSize):
+        for key in range(c.populationSize):
             self.children[key] = copy.deepcopy(self.parents[key])
             self.children[key] = SOLUTION(self.nextAvailableID)
             self.nextAvailableID += 1
@@ -59,16 +58,17 @@ class PARALLEL_HILL_CLIMBER:
     def Print(self):
         print(" ")
         for key in range(c.populationSize):
-            print('Parent fitness: ', self.parents[key].fitness, ', Child fitness:', self.children[key].fitness)
-        print(" ")
+            pass
+            # print('Parent fitness: ', self.parents[key].fitness, ', Child fitness:', self.children[key].fitness)
+        # print(" ")
 
     def Show_Best(self):
 
         self.Select()
         mostFitKey = 0
-        for key in range(c.populationSize-1):
-            if (self.parents[key].fitness > self.parents[key+1].fitness):
-                mostFitKey = key+1
+        for key in range(c.populationSize - 1):
+            if (self.parents[key].fitness > self.parents[key + 1].fitness):
+                mostFitKey = key + 1
         self.parents[mostFitKey].Start_Simulation("GUI")
 
     def Evaluate(self, solutions):

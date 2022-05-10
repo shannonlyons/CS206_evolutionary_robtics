@@ -5,9 +5,9 @@ from motor import MOTOR
 import time
 from pyrosim.neuralNetwork import NEURAL_NETWORK
 import os
-import math
 
 import constants as c
+import sensor as s
 
 class ROBOT:
     def __init__(self, solutionID):
@@ -16,23 +16,22 @@ class ROBOT:
         self.sensors = {}
         self.motors = {}
 
-        bodyFileName = "body" + str(self.solutionID) + ".urdf"
-        self.robotId = p.loadURDF(bodyFileName)
-
+        self.robotId = p.loadURDF("body.urdf")
         fileName = "brain" + str(self.solutionID) + ".nndf"
+        print(fileName)
+       # print("FILE NAME ABOVE")
         self.nn = NEURAL_NETWORK(fileName)
-
 
         pyrosim.Prepare_To_Simulate(self.robotId)
 
         ROBOT.Prepare_To_Sense(self)
         ROBOT.Prepare_To_Act(self)
 
-        os.remove(bodyFileName)
         os.remove(fileName)
 
     def Prepare_To_Sense(self):
         for linkName in pyrosim.linkNamesToIndices:
+          #  print(linkName)
             self.sensors[linkName] = SENSOR(linkName)
     #
     def Sense(self, i):
@@ -54,17 +53,19 @@ class ROBOT:
                 self.motors[jointName].Set_Value(desiredAngle, self.robotId)
 
     def Get_Fitness(self):
-        basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
-        basePosition = basePositionAndOrientation[0]
-        xPosition = basePosition[0]
-        height = basePosition[2]
+        self.stateOfLinkZero = p.getLinkState(self.robotId, 0)
+        self.positionOfLinkZero = self.stateOfLinkZero[0]
+        self.xCoordinateOfLinkZero = self.positionOfLinkZero[0]
+
+        # basePositionAndOrientation = p.getBasePositionAndOrientation(self.robot)
+        # basePosition = basePositionAndOrientation[0]
+        # xPosition = basePosition[0]
 
         fitnessFile = "fitness" + str(self.solutionID) + ".txt"
         tempFile = "tmp" + str(self.solutionID) + ".txt"
         f = open(tempFile, "w")
         os.system('mv ' + tempFile + ' ' + fitnessFile)
-        f.write(str(xPosition))
-      #  f.write(str(height))
+        # f.write(str(xPosition))
+        f.write(str(self.xCoordinateOfLinkZero))
+      #   f.write(str(xPosition))
         f.close()
-
-        exit()

@@ -1,12 +1,12 @@
 import numpy as np
-#from constants import CONSTANTS
+# from constants import CONSTANTS
 import constants as c
 import pyrosim.pyrosim as pyrosim
 import pybullet as p
 
+
 class MOTOR:
     def __init__(self, jointName):
-
         self.values = None
 
         self.motorValues = []
@@ -20,3 +20,4 @@ class MOTOR:
 
     def Set_Value(self, desiredAngle, robot):
         pyrosim.Set_Motor_For_Joint(robot, self.jointName, p.POSITION_CONTROL, desiredAngle, 20)
+
